@@ -1,17 +1,18 @@
 import * as React from "react";
+import { useCallback, useRef, useEffect } from "react";
 import "../styles/ui.css";
 
 declare function require(path: string): any;
 
 const App = ({}) => {
-  const textbox = React.useRef<HTMLInputElement>(undefined);
+  const textbox = useRef<HTMLInputElement>(undefined);
 
-  const countRef = React.useCallback((element: HTMLInputElement) => {
+  const countRef = useCallback((element: HTMLInputElement) => {
     if (element) element.value = "5";
     textbox.current = element;
   }, []);
 
-  const onCreate = React.useCallback(() => {
+  const onCreate = useCallback(() => {
     const count = parseInt(textbox.current.value, 10);
     parent.postMessage(
       { pluginMessage: { type: "create-rectangles", count } },
@@ -19,11 +20,11 @@ const App = ({}) => {
     );
   }, []);
 
-  const onCancel = React.useCallback(() => {
+  const onCancel = useCallback(() => {
     parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // This is how we read messages sent from the plugin controller
     window.onmessage = (event) => {
       const { type, message } = event.data.pluginMessage;
