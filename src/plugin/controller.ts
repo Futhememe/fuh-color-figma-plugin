@@ -7,7 +7,6 @@ figma.ui.onmessage = (msg) => {
     const nodes = [];
 
     for (let i = 0; i < msg.count; i++) {
-      console.log(msg.rgb);
       const rect = figma.createRectangle();
       rect.x = i * 150;
       rect.fills = [{ type: "SOLID", color: hexToRgb(msg.rgb) }];
