@@ -6,7 +6,7 @@ import { Container, PrimaryButton, Button, Textfield } from "../styles/index";
 declare function require(path: string): any;
 
 const App = ({}) => {
-  const textbox = useRef<HTMLInputElement>(Textfield);
+  const textbox = useRef<HTMLInputElement>(undefined);
 
   const countRef = useCallback((element: HTMLInputElement) => {
     if (element) element.value = "5";
@@ -39,7 +39,7 @@ const App = ({}) => {
     <Container>
       <h2>Pick a Color</h2>
       <p>
-        Count: <input ref={countRef} />
+        Count: <Textfield ref={countRef} />
       </p>
       <PrimaryButton onClick={onCreate}>Create</PrimaryButton>
       <Button onClick={onCancel}>Cancel</Button>

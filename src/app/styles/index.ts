@@ -37,7 +37,8 @@ export const PrimaryButton = styled.button`
 `;
 
 export const Textfield = styled.input`
-  border: none;
+  border-radius: 5px;
+  border-width: 1px;
   outline: none;
   padding: 8px;
 
@@ -46,6 +47,6 @@ export const Textfield = styled.input`
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 2px #00ba88;
+    border-color: #00ba88;
   }
 `;
