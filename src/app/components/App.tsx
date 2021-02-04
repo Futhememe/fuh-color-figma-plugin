@@ -1,11 +1,12 @@
 import * as React from "react";
 import { useCallback, useRef, useEffect } from "react";
-import "../styles/ui.css";
+// import "../styles/ui.css";
+import { Container, PrimaryButton, Button, Textfield } from "../styles/index";
 
 declare function require(path: string): any;
 
 const App = ({}) => {
-  const textbox = useRef<HTMLInputElement>(undefined);
+  const textbox = useRef<HTMLInputElement>(Textfield);
 
   const countRef = useCallback((element: HTMLInputElement) => {
     if (element) element.value = "5";
@@ -35,17 +36,14 @@ const App = ({}) => {
   }, []);
 
   return (
-    <div>
-      <img src={require("../assets/logo.svg")} />
-      <h2>Code translator</h2>
+    <Container>
+      <h2>Pick a Color</h2>
       <p>
         Count: <input ref={countRef} />
       </p>
-      <button id="create" onClick={onCreate}>
-        Create
-      </button>
-      <button onClick={onCancel}>Cancel</button>
-    </div>
+      <PrimaryButton onClick={onCreate}>Create</PrimaryButton>
+      <Button onClick={onCancel}>Cancel</Button>
+    </Container>
   );
 };
 
