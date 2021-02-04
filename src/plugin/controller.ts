@@ -1,3 +1,5 @@
+import { hexToRgb } from "../app/utils/colorTreatment";
+
 figma.showUI(__html__);
 
 figma.ui.onmessage = (msg) => {
@@ -5,9 +7,10 @@ figma.ui.onmessage = (msg) => {
     const nodes = [];
 
     for (let i = 0; i < msg.count; i++) {
+      console.log(msg.rgb);
       const rect = figma.createRectangle();
       rect.x = i * 150;
-      rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
+      rect.fills = [{ type: "SOLID", color: hexToRgb(msg.rgb) }];
       figma.currentPage.appendChild(rect);
       nodes.push(rect);
     }
