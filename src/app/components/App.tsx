@@ -6,7 +6,7 @@ import { Container, PrimaryButton, Button, Textfield } from "../styles/index";
 declare function require(path: string): any;
 
 const App = ({}) => {
-  const countTextbox = useRef<HTMLInputElement>(undefined);
+  // const countTextbox = useRef<HTMLInputElement>(undefined);
   const colorTextbox = useRef<HTMLInputElement>(undefined);
 
   // const countRef = useCallback((element: HTMLInputElement) => {
@@ -19,10 +19,10 @@ const App = ({}) => {
   }, []);
 
   const onCreate = useCallback(() => {
-    const count = parseInt(countTextbox.current.value, 10);
+    // const count = parseInt(countTextbox.current.value, 10);
     const color = String(colorTextbox.current.value);
     parent.postMessage(
-      { pluginMessage: { type: "create-rectangles", count, rgb: color } },
+      { pluginMessage: { type: "create-rectangles", hex: color } },
       "*"
     );
   }, []);
