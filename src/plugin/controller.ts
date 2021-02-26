@@ -6,13 +6,13 @@ figma.ui.onmessage = (msg) => {
   if (msg.type === "create-rectangles") {
     const nodes = [];
 
-    for (let i = 0; i < msg.count; i++) {
-      const rect = figma.createRectangle();
-      rect.x = i * 150;
-      rect.fills = [{ type: "SOLID", color: hexToRgb(msg.rgb) }];
-      figma.currentPage.appendChild(rect);
-      nodes.push(rect);
-    }
+    const rect = figma.createRectangle();
+    rect.resize(397, 220);
+    rect.cornerRadius = 32;
+    // rect.x = i * 150;
+    rect.fills = [{ type: "SOLID", color: hexToRgb(msg.rgb) }];
+    figma.currentPage.appendChild(rect);
+    nodes.push(rect);
 
     figma.currentPage.selection = nodes;
     figma.viewport.scrollAndZoomIntoView(nodes);
