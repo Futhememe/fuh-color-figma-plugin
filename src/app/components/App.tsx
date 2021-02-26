@@ -9,10 +9,10 @@ const App = ({}) => {
   const countTextbox = useRef<HTMLInputElement>(undefined);
   const colorTextbox = useRef<HTMLInputElement>(undefined);
 
-  const countRef = useCallback((element: HTMLInputElement) => {
-    if (element) element.value = "5";
-    countTextbox.current = element;
-  }, []);
+  // const countRef = useCallback((element: HTMLInputElement) => {
+  //   if (element) element.value = "1";
+  //   countTextbox.current = element;
+  // }, []);
 
   const colorRef = useCallback((element: HTMLInputElement) => {
     if (element) colorTextbox.current = element;
@@ -44,9 +44,9 @@ const App = ({}) => {
   return (
     <Container>
       <h2>Pick a Color</h2>
-      <p>
+      {/* <p>
         Count: <Textfield ref={countRef} />
-      </p>
+      </p> */}
       <p>
         Color: <Textfield type="color" ref={colorRef} />
       </p>
