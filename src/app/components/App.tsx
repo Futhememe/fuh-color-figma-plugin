@@ -22,7 +22,7 @@ const App = ({}) => {
     // const count = parseInt(countTextbox.current.value, 10);
     const color = String(colorTextbox.current.value);
     parent.postMessage(
-      { pluginMessage: { type: "create-rectangles", hex: color } },
+      { pluginMessage: { type: "create-card", hex: color } },
       "*"
     );
   }, []);

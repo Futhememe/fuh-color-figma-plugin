@@ -5,7 +5,7 @@ import { ControllerProps } from "./_types";
 figma.showUI(__html__);
 
 figma.ui.onmessage = ({ type, hex }: ControllerProps) => {
-  if (type === "create-rectangles") {
+  if (type === "create-card") {
     const nodes = [];
 
     nodes.push(addReactangle(hex));
