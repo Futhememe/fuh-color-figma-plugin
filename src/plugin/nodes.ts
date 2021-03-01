@@ -12,15 +12,44 @@ export function addReactangle(hex: string | number) {
   return rect;
 }
 
-export function addText({ type, text, position }: TextProps) {
+export async function addTitle({ text, position }: TextProps) {
   const font = figma.createText();
 
-  font.textAlignHorizontal = "LEFT";
+  await figma.loadFontAsync({
+    family: "Poppins",
+    style: "Bold",
+  });
+
   font.fontName = {
     family: "Poppins",
-    style: type === "title" ? "Bold" : "Regular",
+    style: "Bold",
   };
-  font.fontSize = type === "title" ? 24 : 19;
+  font.textAlignHorizontal = "LEFT";
+  font.fontSize = 24;
   font.characters = text;
-  font.y = position + 16;
+  font.y = position.y + position.height + 32;
+  font.x = position.x + 32;
+
+  figma.currentPage.appendChild(font);
+}
+
+export async function addSubtitle({ text, position }: TextProps) {
+  const font = figma.createText();
+
+  await figma.loadFontAsync({
+    family: "Poppins",
+    style: "Regular",
+  });
+
+  font.fontName = {
+    family: "Poppins",
+    style: "Regular",
+  };
+  font.textAlignHorizontal = "LEFT";
+  font.fontSize = 19;
+  font.characters = text;
+  font.y = position.y + position.height + 68 + 8;
+  font.x = position.x + 32;
+
+  figma.currentPage.appendChild(font);
 }
