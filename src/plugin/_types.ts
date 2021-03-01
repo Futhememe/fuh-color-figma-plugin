@@ -1,10 +1,15 @@
 export interface ControllerProps {
   type: string;
   hex: string | number;
+  title: string;
+  description: string;
 }
 
 export interface TextProps {
-  type?: "title" | "subtitle";
   text?: string;
-  position?: any;
+  position?: {
+    y: number;
+    x: number;
+    height?: number;
+  };
 }
