@@ -1,6 +1,29 @@
 import { hexToRgb } from "../app/utils/colorTreatment";
 import { TextProps } from "./_types";
 
+export function addBackground() {
+  const rect = figma.createRectangle();
+  rect.resize(397, 360);
+  rect.cornerRadius = 32;
+  // rect.x = i * 150;
+  rect.fills = [{ type: "SOLID", color: { r: 255, g: 255, b: 255 } }];
+
+  rect.effects = [
+    {
+      type: "DROP_SHADOW",
+      color: { r: 17, g: 17, b: 17, a: 8 },
+      blendMode: "NORMAL",
+      spread: 64,
+      radius: 0,
+      visible: true,
+      offset: { x: 0, y: 32 },
+    },
+  ];
+  figma.currentPage.appendChild(rect);
+
+  return rect;
+}
+
 export function addReactangle(hex: string | number) {
   const rect = figma.createRectangle();
   rect.resize(397, 220);

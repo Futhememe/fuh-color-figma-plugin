@@ -10,6 +10,8 @@ figma.ui.onmessage = ({ type, hex, title, description }: ControllerProps) => {
   if (type === "create-card") {
     const nodes = [];
 
+    // const background = addBackground();
+
     const color = addReactangle(hex);
 
     const textTitle = addTitle({
